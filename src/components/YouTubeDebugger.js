@@ -17,26 +17,35 @@ export default class YouTubeDebugger extends Component {
     }
 
     changeBitrate = () => {
-        this.setState(previousState => {
-          return {
-            count: previousState.count + 1
-          }
+        this.setState({
+            settings: {
+                ...this.state.settings,
+                bitrate: 12
+            }
         })
     }
 
     changeResolution = () => {
-        this.setState(previousState => {
-          return {
-            count: previousState.count + 1
-          }
+        this.setState({
+            settings: {
+                ...this.state.settings,
+                    video: {
+                        ...this.state.settings.video,
+                        resolution: '720p'
+                    }
+                
+            }
         })
     }
    
     render() {
         return (
-        <button
-            onClick={this.handleClick}
-        />
+            <div>
+                <button class='bitrate' onClick={this.changeBitrate}></button>
+                <button class='resolution' onClick={this.changeResolution}></button>
+            </div>
         )
     }
+
 }
+

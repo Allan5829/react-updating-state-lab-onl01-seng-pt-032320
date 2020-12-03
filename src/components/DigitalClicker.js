@@ -12,16 +12,14 @@ export default class DigitalClicker extends Component {
     handleClick = () => {
         this.setState(previousState => {
           return {
-            count: previousState.count + 1
+            timesClicked: previousState.timesClicked + 1
           }
         })
     }
    
     render() {
         return (
-        <button
-            onClick={this.handleClick}
-        />
+        <button onClick={this.handleClick}>{this.state.timesClicked}</button>
         )
     }
 }
